@@ -7,21 +7,19 @@ public class Rocket : MonoBehaviour
     [SerializeField] float Speed = 1000f;
     [SerializeField] float TiltSpeed = 100f;
 
-    private Rigidbody rocket;
+    Rigidbody rocket;
 
-    private void Start()
+    void Start()
     {
         rocket = GetComponent<Rigidbody>();
     }
-    private void Update()
+    
+    void Update()
     {
         float rotZ = Input.GetAxis("Horizontal");
 
         if (Input.GetKey(KeyCode.Space))
-        {
-
             rocket.AddForce(transform.up * (Speed * Time.deltaTime));
-        }
 
         if (!Mathf.Approximately(rotZ, 0))
         {
