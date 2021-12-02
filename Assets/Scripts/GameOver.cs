@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dissapear : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
+    public GameObject gameover;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +18,11 @@ public class Dissapear : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "raket")
+        if (this.tag == "GameOver" && other.gameObject.tag == "raket")
         {
-            Destroy(this.gameObject);
+            gameover.SetActive(true);
         }
     }
 }

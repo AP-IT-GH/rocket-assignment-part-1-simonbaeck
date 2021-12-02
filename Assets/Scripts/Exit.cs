@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Dissapear : MonoBehaviour
+public class Exit : MonoBehaviour
 {
+    public Button button;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Button btn = button.GetComponent<Button>();
+        btn.onClick.AddListener(ExitGame);
     }
 
     // Update is called once per frame
@@ -16,11 +20,8 @@ public class Dissapear : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    void ExitGame()
     {
-        if (other.gameObject.tag == "raket")
-        {
-            Destroy(this.gameObject);
-        }
+        Application.Quit();
     }
 }

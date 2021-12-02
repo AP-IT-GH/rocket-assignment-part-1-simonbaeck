@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dissapear : MonoBehaviour
+public class CoinRotation : MonoBehaviour
 {
+    public float speed = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,14 +14,7 @@ public class Dissapear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "raket")
-        {
-            Destroy(this.gameObject);
-        }
+        transform.Rotate(Vector3.up * speed * Time.deltaTime);
     }
 }

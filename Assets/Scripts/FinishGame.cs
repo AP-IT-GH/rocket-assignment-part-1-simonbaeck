@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dissapear : MonoBehaviour
+public class FinishGame : MonoBehaviour
 {
+    public GameObject end;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,14 +15,14 @@ public class Dissapear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (other.gameObject.tag == "raket")
+        if (this.tag == "End" && collision.gameObject.tag == "raket")
         {
-            Destroy(this.gameObject);
+            end.SetActive(true);
         }
     }
 }
